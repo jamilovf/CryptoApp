@@ -1,8 +1,6 @@
 package com.example.cryptoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +11,6 @@ import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -67,12 +64,12 @@ public class CryptoMetadataActivity extends AppCompatActivity {
 
         TextView cryptoNameTextView = findViewById(R.id.cryptoNameTextView);
         TextView websiteTextView = findViewById(R.id.websiteTextView);
-        TextView blogsiteTextView = findViewById(R.id.blogsiteTextView);
+        TextView twitterTextView = findViewById(R.id.twitterTextView);
         ImageView cryptoLogoImageView = findViewById(R.id.cryptoLogoImageView);
 
         cryptoNameTextView.setText(cryptoModelMetadataList.get(0).getName());
         websiteTextView.setText(cryptoModelMetadataList.get(0).getWebsiteUrl());
-        blogsiteTextView.setText(cryptoModelMetadataList.get(0).getBlogUrl());
+        twitterTextView.setText(cryptoModelMetadataList.get(0).getTwitterUrl());
         GlideToVectorYou.init().with(this)
                 .load(Uri.parse(cryptoModelMetadataList.get(0).getLogoUrl()), cryptoLogoImageView);
     }

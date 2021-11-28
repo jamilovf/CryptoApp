@@ -49,7 +49,7 @@
         android:layout_height="51dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="28dp"
-        android:text="Blogsite:"
+        android:text="Twitter:"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/blogsiteTextView"
+        android:id="@+id/twitterTextView"
         android:layout_width="233dp"
         android:layout_height="51dp"
         android:layout_marginTop="28dp"
@@ -76,4 +76,5 @@
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/websiteTextView"
         app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

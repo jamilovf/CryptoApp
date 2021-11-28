@@ -10,8 +10,8 @@ public class CryptoModelMetadata {
     @SerializedName("website_url")
     private String websiteUrl;
 
-    @SerializedName("blog_url")
-    private String blogUrl;
+    @SerializedName("twitter_url")
+    private String twitterUrl;
 
     @SerializedName("logo_url")
     private String logoUrl;
@@ -19,10 +19,10 @@ public class CryptoModelMetadata {
     public CryptoModelMetadata() {
     }
 
-    public CryptoModelMetadata(String name, String websiteUrl, String blogUrl, String logoUrl) {
+    public CryptoModelMetadata(String name, String websiteUrl, String twitterUrl, String logoUrl) {
         this.name = name;
         this.websiteUrl = websiteUrl;
-        this.blogUrl = blogUrl;
+        this.twitterUrl = twitterUrl;
         this.logoUrl = logoUrl;
     }
 
@@ -34,12 +34,12 @@ public class CryptoModelMetadata {
         this.websiteUrl = websiteUrl;
     }
 
-    public String getBlogUrl() {
-        return blogUrl;
+    public String getTwitterUrl() {
+        return twitterUrl;
     }
 
-    public void setBlogUrl(String blogUrl) {
-        this.blogUrl = blogUrl;
+    public void setTwitterUrl(String twitterUrl) {
+        this.twitterUrl = twitterUrl;
     }
 
     public String getLogoUrl() {
