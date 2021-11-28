@@ -28,6 +28,7 @@
         android:layout_marginEnd="36dp"
         android:onClick="searchSpecificCrypto"
         android:text="Search"
+        android:backgroundTint="#C5392F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

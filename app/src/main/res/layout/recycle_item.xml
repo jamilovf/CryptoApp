@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:elevation="50dp"
         android:visibility="visible"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="#99EEDF"
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
                     android:layout_height="51dp"
                     android:layout_margin="5dp"
                     android:padding="5dp"
-                    android:textColor="@color/purple_700"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -46,7 +46,7 @@
                     android:layout_height="51dp"
                     android:layout_margin="5dp"
                     android:padding="5dp"
-                    android:textColor="@color/purple_700"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -62,7 +62,7 @@
                 android:id="@+id/logoImageView"
                 android:layout_width="94dp"
                 android:layout_height="88dp"
-                android:layout_margin="5dp" />
+                android:layout_margin="10dp" />
 
 
         </LinearLayout>
