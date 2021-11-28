@@ -15,4 +15,7 @@ public interface CryptoAPI {
     @GET
     Observable<List<CryptoModel>> getSpecificCryptoData(@Url String url);
 
+    @GET
+    Observable<List<CryptoModelMetadata>> getCryptoMetadata(@Url String url);
+
 }

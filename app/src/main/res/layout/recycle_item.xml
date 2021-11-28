@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="6dp"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="6dp">
 
 
     <androidx.cardview.widget.CardView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:elevation="50dp"
         android:visibility="visible"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +66,6 @@
 
 
         </LinearLayout>
-
 
 
     </androidx.cardview.widget.CardView>
