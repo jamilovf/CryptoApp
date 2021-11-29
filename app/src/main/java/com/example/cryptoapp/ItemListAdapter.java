@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -42,14 +42,26 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemVi
 
         holder.currencyTextView.setText(mCurrent.getCurrency());
         holder.priceTextView.setText(formattedPrice);
-        GlideToVectorYou.init().with(context)
-                .load(Uri.parse(mCurrent.getLogoUrl()), holder.logoImageView);
+        fillImageView(holder.logoImageView, mCurrent.getLogoUrl());
 
     }
 
     @Override
     public int getItemCount() {
         return mItemList.size();
+    }
+
+    public void fillImageView(ImageView imageView, String logoUrl){
+        if(logoUrl.endsWith("svg")){
+            GlideToVectorYou.init().with(context)
+                .load(Uri.parse(logoUrl), imageView);
+        }
+        else if(logoUrl.endsWith("png") || logoUrl.endsWith("jpg")){
+            Picasso.get().load(logoUrl).into(imageView);
+        }
+        else {
+            imageView.setImageDrawable(context.getDrawable(R.mipmap.default_clogo));
+        }
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder {

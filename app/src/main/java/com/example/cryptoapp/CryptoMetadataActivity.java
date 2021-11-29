@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -74,8 +75,7 @@ public class CryptoMetadataActivity extends AppCompatActivity {
         fillTextView(twitterTextView, cryptoModelMetadataList.get(0).getTwitterUrl());
         fillTextView(facebookTextView, cryptoModelMetadataList.get(0).getFacebookUrl());
         fillTextView(youtubeTextView, cryptoModelMetadataList.get(0).getYoutubeUrl());
-        GlideToVectorYou.init().with(this)
-                .load(Uri.parse(cryptoModelMetadataList.get(0).getLogoUrl()), cryptoLogoImageView);
+        fillImageView(cryptoLogoImageView, cryptoModelMetadataList.get(0).getLogoUrl());
     }
 
 
@@ -92,6 +92,19 @@ public class CryptoMetadataActivity extends AppCompatActivity {
         }
         else {
             textView.setText(getString(R.string.empty_metadata));
+        }
+    }
+
+    public void fillImageView(ImageView imageView, String logoUrl){
+        if(logoUrl.endsWith("svg")){
+            GlideToVectorYou.init().with(this)
+                    .load(Uri.parse(logoUrl), imageView);
+        }
+        else if(logoUrl.endsWith("png") || logoUrl.endsWith("jpg")){
+            Picasso.get().load(logoUrl).into(imageView);
+        }
+        else {
+            imageView.setImageDrawable(this.getDrawable(R.mipmap.default_clogo));
         }
     }
 }
