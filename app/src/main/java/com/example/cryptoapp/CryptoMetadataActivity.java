@@ -65,11 +65,15 @@ public class CryptoMetadataActivity extends AppCompatActivity {
         TextView cryptoNameTextView = findViewById(R.id.cryptoNameTextView);
         TextView websiteTextView = findViewById(R.id.websiteTextView);
         TextView twitterTextView = findViewById(R.id.twitterTextView);
+        TextView facebookTextView = findViewById(R.id.facebookTextView);
+        TextView youtubeTextView = findViewById(R.id.youtubeTextView);
         ImageView cryptoLogoImageView = findViewById(R.id.cryptoLogoImageView);
 
-        cryptoNameTextView.setText(cryptoModelMetadataList.get(0).getName());
-        websiteTextView.setText(cryptoModelMetadataList.get(0).getWebsiteUrl());
-        twitterTextView.setText(cryptoModelMetadataList.get(0).getTwitterUrl());
+        fillTextView(cryptoNameTextView, cryptoModelMetadataList.get(0).getName());
+        fillTextView(websiteTextView, cryptoModelMetadataList.get(0).getWebsiteUrl());
+        fillTextView(twitterTextView, cryptoModelMetadataList.get(0).getTwitterUrl());
+        fillTextView(facebookTextView, cryptoModelMetadataList.get(0).getFacebookUrl());
+        fillTextView(youtubeTextView, cryptoModelMetadataList.get(0).getYoutubeUrl());
         GlideToVectorYou.init().with(this)
                 .load(Uri.parse(cryptoModelMetadataList.get(0).getLogoUrl()), cryptoLogoImageView);
     }
@@ -80,5 +84,14 @@ public class CryptoMetadataActivity extends AppCompatActivity {
         super.onDestroy();
 
         compositeDisposable.clear();
+    }
+
+    public void fillTextView(TextView textView, String metadata){
+        if(metadata != null && !metadata.trim().equals("")){
+            textView.setText(metadata);
+        }
+        else {
+            textView.setText(getString(R.string.empty_metadata));
+        }
     }
 }
