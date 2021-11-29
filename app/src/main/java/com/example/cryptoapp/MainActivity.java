@@ -1,9 +1,11 @@
 package com.example.cryptoapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -12,7 +14,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     CompositeDisposable compositeDisposable;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void loadData() {
 
         final CryptoAPI cryptoAPI = retrofit.create(CryptoAPI.class);
@@ -65,8 +71,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void handleResponse(List<CryptoModel> cryptoModelList) {
         cryptoModels = new ArrayList<>(cryptoModelList);
+        cryptoModels = cryptoModels.stream()
+        .sorted(((c1, c2) ->
+                Double.compare(Double.parseDouble(c2.getPrice()),
+                        Double.parseDouble(c1.getPrice()))))
+        .collect(Collectors.toList());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         itemListAdapter = new ItemListAdapter(this, cryptoModels);
@@ -81,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         compositeDisposable.clear();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void searchSpecificCrypto(View view) {
         EditText editText = findViewById(R.id.searchText);
 
